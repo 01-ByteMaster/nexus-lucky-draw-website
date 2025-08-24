@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #8b5cf6;
+    --accent: #f59e0b;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: var(--light);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Slot Machine Styles */
+.slot-container {
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    max-width: 500px;
+    perspective: 1000px;
+}
+
+.slot-machine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.slot-names {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+}
+
+.slot-name {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transform-style: preserve-3d;
+}
+
+/* Winner Card Styles */
+.winner-card {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(245, 158, 11, 0.3);
+}
+
+.winner-card.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Spotlight Effect */
+.spotlight {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.spotlight.visible {
+    opacity: 1;
+}
+
+/* Confetti Styles */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0.7;
+    border-radius: 50%;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(to right, var(--accent), var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Prize Images */
+.prize-img {
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+/* Hidden Initially */
+.hidden {
+    display: none;
+}
+
+.asc-logo {
+    width: 200px;
+    height: 40px;
+}
+
+.university-logo {
+    width: 200px;
+    height: 40px;
+}
+
+/* Winner Name Animation */
+@keyframes winnerPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.winner-name {
+    animation: winnerPulse 2s infinite;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.7);
+}
+
+/* Prize Reveal Animation */
+.prize-reveal {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.prize-reveal.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Loading Dots */
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.loading-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}
