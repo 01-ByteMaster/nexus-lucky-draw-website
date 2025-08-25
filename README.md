@@ -24,4 +24,3 @@ It simulates a **slot machine–style animation** to randomly pick a winner from
 
 ---
 
-Would you like me to also write a **short version** (2–3 lines) that you can put in the GitHub repo tagline/description box?
