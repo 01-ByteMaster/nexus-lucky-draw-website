@@ -1,6 +1,4 @@
 
-Got it 👍 Since your project is pure **HTML, CSS, and JavaScript**, here’s a nice professional description you can put in your **README.md** or GitHub description:
-
 ---
 
 ## 📌 Project Description
